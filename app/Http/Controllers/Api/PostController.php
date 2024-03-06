@@ -14,11 +14,20 @@ class PostController extends Controller
             'status' => true,
             'posts' => Post::query()
                 ->orderByRaw('published_at DESC')
+                ->with('tags') //связь в post ммодели
                 ->get(['id', 'title_job', 'price', 'experience', 'city', 'published_at', 'logo', 'name_company'])
         ];
     }
     public function show($postId)
     {
-        return ['status' => true, 'posts' => Post::query()->findOrFail($postId)];
+        $post = Post::query()
+            ->with('tags')
+            ->findOrFail($postId);
+
+        return $response = [
+            'status' => true,
+            'posts' => $post
+        ];
+        // return ['status' => true, 'posts' => Post::query()->findOrFail($postId)];
     }
 }
