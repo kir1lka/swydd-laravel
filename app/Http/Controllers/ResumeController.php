@@ -51,8 +51,14 @@ class ResumeController extends Controller
     }
     public function destroy(Resume $resume)
     {
-        User_resume::where('resume_id', $resume["id"])->delete();
+        // User_resume::where('resume_id', $resume["id"])->delete();
 
+        // $resume->delete();
+
+        // return response('', 204);
+
+        $resume->responses()->delete();
+        $resume->userResumes()->delete();
         $resume->delete();
 
         return response('', 204);

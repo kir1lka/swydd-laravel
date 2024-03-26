@@ -9,15 +9,21 @@ class Response extends Model
 {
     use HasFactory;
 
-    protected $fillabel = [
+    protected $fillable  = [
         'date',
         'user_resume_id',
-        'status_response_id'
+        'status_response_id',
+        'post_id'
     ];
 
     protected $casts = [
         'date' => 'datetime',
     ];
+
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 
     public function user_resume()
     {

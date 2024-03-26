@@ -25,4 +25,14 @@ class Resume extends Model
     protected $casts = [
         'date_of_birtday' => 'datetime',
     ];
+
+    public function userResumes()
+    {
+        return $this->hasMany(User_resume::class);
+    }
+
+    public function responses()
+    {
+        return $this->hasManyThrough(Response::class, User_resume::class);
+    }
 }
