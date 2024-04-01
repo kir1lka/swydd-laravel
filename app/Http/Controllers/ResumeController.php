@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateResumeRequest;
 use App\Models\Resume;
 use App\Models\User_resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ResumeController extends Controller
 {

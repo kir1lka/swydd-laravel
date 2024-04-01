@@ -29,14 +29,27 @@ class StoreResumeRequest extends FormRequest
             'last_name' => ['required', 'string', 'max:55', 'min:5'],
             'city' => ['required', 'string', 'min:5'],
             'date_of_birtday' => ['required', 'date_format:d-m-Y'],
-            'phone' => ['required', 'min:5'],
-            'title' => ['required', 'min:5'],
-            'nationality' => ['required', 'min:5'],
-            'experience' => ['required', 'min:5'],
-            'education' => ['required', 'min:5'],
-            // 'name' => ['required', 'string', 'max:55', 'min:5'],
-            // 'email' => ['required', 'email', 'unique:users,email'],
-            // 'password' => ['required', 'confirmed', Password::min(8)->letters()->symbols()],
+            'phone' => ['required', 'min:5', 'max:55'],
+            'title' => ['required', 'min:5', 'max:55'],
+            'nationality' => ['required', 'min:5', 'max:55'],
+            'experience' => ['required', 'min:5', 'max:55'],
+            'education' => ['required', 'min:5', 'max:55'],
+        ];
+    }
+
+    public function attributes()
+    {
+        return [
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
+            'last_name' => 'Отчество',
+            'city' => 'Город',
+            'date_of_birtday' => 'Год рождения',
+            'phone' => 'Телефон',
+            'title' => 'Желаемая должность',
+            'nationality' => 'Национальность',
+            'experience' => 'Опыт работы',
+            'education' => 'Образование',
         ];
     }
 }
