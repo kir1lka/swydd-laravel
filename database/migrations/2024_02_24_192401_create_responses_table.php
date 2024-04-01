@@ -19,6 +19,7 @@ return new class extends Migration
             $table->timestamp('date');
             $table->foreignId('user_resume_id')->constrained();
             $table->foreignId('status_response_id')->constrained();
+            $table->foreignId('post_id')->constrained();
 
             $table->timestamps();
         });

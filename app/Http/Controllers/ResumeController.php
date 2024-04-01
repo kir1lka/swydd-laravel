@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateResumeRequest;
 use App\Models\Resume;
 use App\Models\User_resume;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ResumeController extends Controller
 {
@@ -51,8 +52,14 @@ class ResumeController extends Controller
     }
     public function destroy(Resume $resume)
     {
-        User_resume::where('resume_id', $resume["id"])->delete();
+        // User_resume::where('resume_id', $resume["id"])->delete();
 
+        // $resume->delete();
+
+        // return response('', 204);
+
+        $resume->responses()->delete();
+        $resume->userResumes()->delete();
         $resume->delete();
 
         return response('', 204);

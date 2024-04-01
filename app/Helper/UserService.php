@@ -49,7 +49,7 @@ class UserService
         $validator->setAttributeNames([
             'email' => 'почта',
             'password' => 'пароль',
-            'name' => 'имя',
+            'name' => 'логин',
         ]);
 
         if ($validator->fails()) {
